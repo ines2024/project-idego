@@ -1,5 +1,5 @@
 var express = require("express")
-const { RegisterUser, getUser, LoginUser, UpdateUser, DeleteUser, UpdateUser2} = require("../Controllers/userController")
+const { RegisterUser, getUser, LoginUser, UpdateUser, DeleteUser, UpdateUser2, getCustomers} = require("../Controllers/userController")
 const { registervalidation, validation, loginvalidation } = require("../middleware/Validation")
 const { sendEmail } = require("../Controllers/Nodemailer")
 const { sendEmailAdmin } = require("../Controllers/Nodemaileradmin")
@@ -18,5 +18,5 @@ userRouter.post('/sendEmailAdmin',sendEmailAdmin)
 userRouter.get("/getcurrent",Isauth,(req,res)=>{
     res.send(req.user)
 })
-
+userRouter.get("/customer",getCustomers)
 module.exports = userRouter

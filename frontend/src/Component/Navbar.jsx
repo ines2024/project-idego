@@ -67,11 +67,18 @@ console.log(user)
                     Logout
                   </Link>
                 </li> : null}
+                
+                {!user.isAdmin && user.name  ?
                 <li className="nav-item">
-                  <Link className="nav-link" to={'/users/get'}>
-                    List of users
+                  <Link className="nav-link" to={'/users/customer'}>
+                    My account
                   </Link>
                 </li>
+                :<li className="nav-item">
+                <Link className="nav-link" to={'/users/get'}>
+                  List of users
+                </Link>
+              </li>}
 
 
                 <li className="nav-item">

@@ -173,3 +173,16 @@ exports.DeleteUser = async (req, res) => {
       .send(error)
   }
 }
+
+
+exports.getCustomers = async (req, res) => {
+  try {
+    const AllUser = await User.findById(id)
+    res.status(200)
+      .send({ message: "ok", AllUser })
+
+  } catch (error) {
+    res.status(500)
+      .send({ message: "erreur" })
+  }
+}

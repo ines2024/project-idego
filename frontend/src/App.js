@@ -13,14 +13,16 @@ import Cancel from './Component/Product/cancel';
 import Success from './Component/Product/success';
 import Contact from './Component/Users/Contact';
 import Slider from './Component/Carousel';
+import Profile from './Component/Users/Profile';
+import { getcurrent } from './Component/Redux/Action';
+import { useEffect } from 'react';
 function App() {
-
 
   return (
     <>
       <Navbar/>
       
-       <Slider/>
+       
 
       <Routes>
         <Route path='/products' element={<Get_product />} />
@@ -29,6 +31,7 @@ function App() {
         <Route path='/users' element={<Register_user />} />
         <Route path='/user/login' element={<Login />} />
         <Route path='users/get' element={<ListUsers />} />
+        <Route path='users/customer' element={<Profile  />} />{/** il faut passee l'id en propos  */}
         <Route path='/success' element={<Success />} />
         <Route path='/cancel' element={<Cancel />} />
         <Route path='/contact' element={<Contact />} />

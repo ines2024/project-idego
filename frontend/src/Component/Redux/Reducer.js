@@ -1,4 +1,4 @@
-import { ALLPRODUCT, ALLUSERS, GETCURRENT, LOGIN, LOGOUT, ONEPRODUCT, POSTPRODUCT } from "./ActionType"
+import { ALLPRODUCT, ALLUSER, ALLUSERS, GETCURRENT, LOGIN, LOGOUT, ONEPRODUCT, POSTPRODUCT } from "./ActionType"
 
 const initialState = {
     products: [],
@@ -19,7 +19,8 @@ export const products_reducer = (state = initialState, { type, payload }) => {
             return{...state, basket:[...state.basket,payload]}
         case "REMOVEFROMBASKET":
         return{...state, basket:state.basket.filter(e=>e.pro._id !== payload)}
-
+        case ALLUSER:
+            return { ...state, user: payload } 
         default:
             return state
     }

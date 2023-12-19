@@ -1,6 +1,6 @@
 const express = require('express');
 const Stripe = require ('stripe');
-const stripe = Stripe('sk_test_51OKMreBk4u6Ymp7ZbxjLV3d5yLmRZqFI4U85hHR7SqZiYN75DFb2YxQVl6O5jm9nlk11GXAuSD4JPeUoaJnXPol900Pstq1MW3')
+const stripe = Stripe('sk_test_51OKMt4Hga6nX9tkrTPoRtqDGbs7E9Qk48qw5mZQQcs5XYGuAZLZTt71h2WQzf5t3nfe73LXQfPn5W4QVhO3Idwdp00aehYz0Zi')
 
 const routerPayment= express.Router()
 

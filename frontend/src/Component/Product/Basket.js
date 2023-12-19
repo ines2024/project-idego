@@ -14,7 +14,7 @@ function Basket() {
     console.log(basket)
     const paiement=async ()=>{
         const res=await axios
-        .post('http://localhost:5668/paiement/create-checkout-session',{basket})
+        .post('/paiement/create-checkout-session',{basket})
         .then(res=> {
             if (res.data.url){
                 window.location.href =res.data.url

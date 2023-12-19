@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ALLPRODUCT, ALLUSERS, GETCURRENT, LOGIN, LOGOUT, ONEPRODUCT, POSTPRODUCT } from "./ActionType";
+import { ALLPRODUCT, ALLUSER, ALLUSERS, GETCURRENT, LOGIN, LOGOUT, ONEPRODUCT, POSTPRODUCT } from "./ActionType";
 export const Get = () => async (dispatch) => {
     try {
       const res = await axios
@@ -61,6 +61,16 @@ export const GetUsers = ()=> async(dispatch)=>{
     console.log(error);
   }
 }
+export const GetProfil = (id)=> async(dispatch)=>{
+  try {
+    const res= await axios
+      .get("/users/customer/",id)
+      .then((res)=>dispatch({type:ALLUSER, payload:res.data.AllUser}))
+      console.log(res)
+  } catch (error) {
+    console.log(error);
+  }
+}
 export const AddUser = (data,navigate)=> async(dispatch)=>{
   try {
     const res = await axios
@@ -113,6 +123,7 @@ export const deletUser = (id)=> async(dispatch)=>{
     console.log(error)
   }
 } 
+
 export const getcurrent=()=>async(dispatch)=>{
   const config={
       headers:{token:localStorage.getItem("token")}
