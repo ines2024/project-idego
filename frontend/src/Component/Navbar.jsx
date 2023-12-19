@@ -2,25 +2,25 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { GetUsers, logout } from './Redux/Action';
-  
- 
+import { GetUsers, getcurrent, logout } from './Redux/Action';
+import logo from '../img/logo-idego.png'
+
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const basket = useSelector(state=>state.products.basket)
- useEffect(()=>{
-  //getcurrent
-  dispatch(GetUsers()) 
- },[])
- const user= useSelector(state=>state.users.users)
-   
+  const basket = useSelector(state => state.products.basket)
+  useEffect(() => {
+    //getcurrent
+    dispatch(getcurrent())
+  }, [])
+  const user = useSelector(state => state.users.user)
+console.log(user)
 
   return (<>
     <nav className="navbar navbar-expand-lg navbar-light p-3 border-bottom">
       <div className="container">
         <Link to="/" className="navbar-brand">
-          My Contacts
+          <img src={logo}/>
         </Link>
         <button
           className="navbar-toggler"
@@ -36,54 +36,56 @@ const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            
-           
-            
-                <li className="nav-item">
-                  <Link className="nav-link" to={'/products'}>
-                     List of products
-                  </Link>
+
+
+
+            <li className="nav-item">
+              <Link className="nav-link" to={'/products'}>
+                List of products
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to={'/basket'}>
+                Basket
+                {basket.length}
+              </Link>
+            </li>
+            {!user.name ? <><li className="nav-item">
+              <Link className="nav-link" to={'/users'}>
+                Register
+              </Link>
+            </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={'/user/login'}>
+                  Login
+                </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to={'/basket'}>
-                     Basket
-                     {basket.length}
+                </>:null
+                }
+                {user.name ? <li className="nav-item">
+                  <Link className="nav-link" to={'/user/login'} onClick={() => dispatch(logout())}>
+                    Logout
                   </Link>
-                </li>
-                {!user.name? <><li className="nav-item">
-                  <Link className="nav-link" to={'/users'}>
-                      Register
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to={'/user/login'}>
-                      Login
-                  </Link>
-                 
-                {user.name? <li className="nav-item">
-                  <Link className="nav-link" to={'/user/login'} onClick={()=>dispatch(logout())}>
-                      Logout
-                  </Link>
-                </li>:null} 
+                </li> : null}
                 <li className="nav-item">
                   <Link className="nav-link" to={'/users/get'}>
-                      List of users
+                    List of users
                   </Link>
                 </li>
 
 
                 <li className="nav-item">
                   <Link className="nav-link" to={'/contact'}>
-                      contact
+                    contact
                   </Link>
                 </li>
-            
-          
-          </ul>
+
+
+              </ul>
+            </div>
         </div>
-      </div>
     </nav>
-    </>
+  </>
   );
 };
 

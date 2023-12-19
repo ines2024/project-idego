@@ -12,6 +12,7 @@ import Basket from './Component/Product/Basket';
 import Cancel from './Component/Product/cancel';
 import Success from './Component/Product/success';
 import Contact from './Component/Users/Contact';
+import Slider from './Component/Carousel';
 function App() {
 
 
@@ -19,7 +20,7 @@ function App() {
     <>
       <Navbar/>
       
-       
+       <Slider/>
 
       <Routes>
         <Route path='/products' element={<Get_product />} />

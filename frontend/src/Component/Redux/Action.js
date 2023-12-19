@@ -126,7 +126,7 @@ console.log(res)
   }
 }
 export const logout = (navigate)=>{
-  localStorage.removeItem('tokenuser')
+  localStorage.removeItem('token')
   navigate('/login')
   return{
     type:LOGOUT
