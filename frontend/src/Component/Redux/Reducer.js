@@ -18,8 +18,11 @@ export const products_reducer = (state = initialState, { type, payload }) => {
             return { ...state, product: payload }    
        
         case "ADDTOBASKET":
-           
-            return{...state, basket:[...state.basket,payload]}
+          const exist=state.basket.find(e=>e.pro._id===payload.pro._id)
+          console.log(exist)
+          if(!exist){
+            return {...state,basket:[...state.basket,payload]}
+          }
         case "REMOVEFROMBASKET":
         return{...state, basket:state.basket.filter(e=>e.pro._id !== payload)}
         case ALLUSER:
