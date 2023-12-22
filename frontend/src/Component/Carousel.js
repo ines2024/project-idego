@@ -5,7 +5,7 @@ function Slider() {
   return (
     <Carousel fade>
       <Carousel.Item>
-        <img width={1900} height={400} alt="900x500" src={img1} />
+        <img width={1920} height={700} alt="900x500" src={img1} />
             </Carousel.Item>
 
             <Carousel.Item>

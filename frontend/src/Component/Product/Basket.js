@@ -32,7 +32,11 @@ function Basket() {
              
         ,0 )
         
-        }
+        }€
+
+
+        
+
     </h1>
     <button onClick={paiement} >Paiement </button>
     <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" ,justifyContent: "space-around"}}>
