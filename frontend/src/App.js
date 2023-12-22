@@ -31,7 +31,7 @@ function App() {
         <Route path='/users' element={<Register_user />} />
         <Route path='/user/login' element={<Login />} />
         <Route path='users/get' element={<ListUsers />} />
-        <Route path='users/customer' element={<Profile  />} />{/** il faut passee l'id en propos  */}
+        <Route path='users/customer' element={<Profile  />} />//** il faut passee l'id en propos  *//
         <Route path='/success' element={<Success />} />
         <Route path='/cancel' element={<Cancel />} />
         <Route path='/contact' element={<Contact />} />

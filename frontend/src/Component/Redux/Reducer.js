@@ -11,11 +11,14 @@ const initialState = {
 export const products_reducer = (state = initialState, { type, payload }) => {
     switch (type) {
 
+
         case ALLPRODUCT:
             return { ...state, products: payload }
         case ONEPRODUCT:
             return { ...state, product: payload }    
+       
         case "ADDTOBASKET":
+           
             return{...state, basket:[...state.basket,payload]}
         case "REMOVEFROMBASKET":
         return{...state, basket:state.basket.filter(e=>e.pro._id !== payload)}

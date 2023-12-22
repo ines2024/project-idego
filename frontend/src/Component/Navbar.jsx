@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { GetUsers, getcurrent, logout } from './Redux/Action';
 import logo from '../img/logo-idego.png'
-
+import { SlBasket } from "react-icons/sl";
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -44,12 +44,7 @@ console.log(user)
                 List of products
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to={'/basket'}>
-                Basket
-                {basket.length}
-              </Link>
-            </li>
+            
             {!user.name ? <><li className="nav-item">
               <Link className="nav-link" to={'/users'}>
                 Register
@@ -86,6 +81,13 @@ console.log(user)
                     contact
                   </Link>
                 </li>
+                <li className="nav-item">
+              <Link className="nav-link" to={'/basket'}>
+              <SlBasket />
+                {basket.length}
+              </Link>
+            
+            </li>
 
 
               </ul>

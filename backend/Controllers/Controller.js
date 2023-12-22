@@ -57,8 +57,7 @@ exports.findProduct = async(req,res)=>{
 exports.deletProducts = async(req,res)=>{
     const {data}= req.body
     try {
-        const product= await products
-        .deleteMany({_id:{$in:data}})
+        const product= await products.deleteMany({_id:{$in:data}})
         res.status(200)
         .send({message:"products supprime",product}) 
     } catch (error) {
